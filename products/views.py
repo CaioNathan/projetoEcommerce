@@ -9,6 +9,7 @@ class ProductFeaturedListView(ListView):
     template_name = "products/list.html"
     
     def get_queryset(self, *args, **kwargs):
+        request = self.request
         return Product.objects.featured()
 
 class ProductFeaturedDetailView(DetailView):
@@ -25,7 +26,6 @@ class ProductListView(ListView):
     #     context = super(ProductListView, self).get_context_data(*args, **kwargs)
     #     print(context)
     #     return context
-
 
 #Function Based View
 def product_list_view(request):
